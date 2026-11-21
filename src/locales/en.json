@@ -1,0 +1,203 @@
+{
+  "site": {
+    "name": "7 Deadly Sins Test",
+    "tagline": "Which deadly sin are you?"
+  },
+  "common": {
+    "takeTheTest": "Take the test",
+    "retake": "Retake",
+    "startOver": "Start over",
+    "seeYourResult": "See your result",
+    "compareWithFriend": "Compare with a friend",
+    "back": "Back",
+    "footer": {
+      "disclaimer": "Results are for reflection and entertainment — not diagnosis or moral judgment. Answers never leave your device.",
+      "rights": "© 2026 7 Deadly Sins Test"
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "7 Deadly Sins Test — Which Deadly Sin Are You? (21 Questions)",
+      "description": "Free seven deadly sins test: 21 quick statements scored privately in your browser. Get seven 0–12 scores, your dominant sin and a shareable result card. About 3 minutes."
+    },
+    "notfound": {
+      "title": "Page Not Found — 7 Deadly Sins Test",
+      "description": "That page doesn't exist. Read the seven sin readings or take the free 21-question 7 Deadly Sins Test."
+    }
+  },
+  "home": {
+    "timeNote": "About 3 minutes",
+    "statementLabel": "Statement",
+    "counterAria": "Question {n} of 21",
+    "progressAria": "Quiz progress: {answered} of 21 answered",
+    "backAria": "Back to the previous statement",
+    "optionsGroupAria": "Rate this statement from 1, strongly disagree, to 5, strongly agree",
+    "keyHint": "Press 1–5 to answer · ← to go back",
+    "saveNote": "Your answers stay on this device.",
+    "memoryNote": "Private mode: this tab keeps your progress, but it can't be restored after you close it.",
+    "inviteNote": "Your friend's top sin is {sin}. Finish the test and you'll see your seven scores next to theirs.",
+    "inviteNoteNoScores": "You're invited to compare results with a friend whose top sin is {sin}.",
+    "noscript": "This quiz needs JavaScript to run — your answers would stay on this device and nothing would be uploaded. You can still read the seven sin pages below.",
+    "completedTitle": "You've already taken the test",
+    "completedTop": "Your dominant sin: {sin} ({score}/12)",
+    "completedNote": "Retake it if your week has changed you.",
+    "knowledgeTitle": "The seven deadly sins",
+    "knowledgeIntro": "Every score maps to one classic sin. Each reading is public — start anywhere."
+  },
+  "quiz": {
+    "q01": "I want others to notice when I get something right.",
+    "q02": "Someone else's success can make my own progress feel smaller.",
+    "q03": "I put off small tasks even when I have time to do them.",
+    "q04": "When someone annoys me, I can pause before reacting.",
+    "q05": "Even when I have enough, I still want more for myself.",
+    "q06": "I often keep enjoying a treat past the point of satisfaction.",
+    "q07": "A strong attraction can pull my attention away from my plans.",
+    "q08": "I can celebrate a friend's win without comparing it to my own life.",
+    "q09": "I find it easy to share something valuable to me.",
+    "q10": "I find it easy to admit I was wrong.",
+    "q11": "I chase the excitement of a new attraction even when it complicates things.",
+    "q12": "I usually take the first step on a dull task promptly.",
+    "q13": "I replay arguments long after they are over.",
+    "q14": "I can stop enjoying a favorite treat when I feel satisfied.",
+    "q15": "I wait for motivation before starting something important.",
+    "q16": "I can let a passing attraction go without acting on it.",
+    "q17": "When I feel slighted, my first impulse is to snap back.",
+    "q18": "When something feels good, I reach for more without thinking.",
+    "q19": "I get defensive when someone points out my mistake.",
+    "q20": "When dividing a reward, I look for a way to keep the larger share.",
+    "q21": "I wish I had what others show about their lives."
+  },
+  "options": [
+    "Strongly disagree",
+    "Disagree",
+    "Neither agree nor disagree",
+    "Agree",
+    "Strongly agree"
+  ],
+  "sins": {
+    "pride": {
+      "name": "Pride",
+      "subtitle": "The sin of needing to be above.",
+      "summary": "Pride shows up when being right starts to matter more than being honest.",
+      "meaning": "Pride, in the classic list, is the instinct that puts your own image above the truth. On this test it doesn't measure confidence — it measures how much being noticed, being right and being above criticism shapes your reactions. The two are easy to tell apart: confidence can admit a mistake, while pride has to defend one.",
+      "pattern": "It usually appears in small defenses rather than grand ones. You may get defensive the moment someone points out your mistake, replay the scene to prove you were right, or want others to notice when you get something right — and feel a quiet drop when they don't. Corrections can start to feel like verdicts about your worth instead of notes about your work.",
+      "virtue": "Humility is not thinking less of yourself — it's thinking accurately about yourself. One move you can try this week: when someone corrects you, restate the problem they pointed out before you respond (“So the issue is that I sent it without checking”). It buys a breath, proves you heard it, and turns a defense into a fix.",
+      "virtueName": "Humility",
+      "metaDescription": "Pride on the 7 Deadly Sins Test: what a high Pride score means, how the need to be right shows up day to day, and the virtue of Humility that counters it. Take the free 21-question test."
+    },
+    "greed": {
+      "name": "Greed",
+      "subtitle": "The sin of never enough.",
+      "summary": "Greed shows up when “enough” keeps moving further away.",
+      "meaning": "Greed is the hoarding instinct: holding more than you need because letting go feels like losing. On this test it measures how you split resources, how hard sharing something valuable feels, and whether the pull to keep acquiring continues past the point of usefulness. It isn't ambition — ambition builds things; greed clutches them.",
+      "pattern": "It often sounds like quiet arithmetic. You may look for the larger share when a reward is divided, resist lending something you care about, keep stacking subscriptions, food or stuff you don't use, and keep wanting more even when you have enough. The strange part: the extra rarely gets enjoyed — it just gets held.",
+      "virtue": "Generosity is releasing one piece on purpose, before you're asked. One move you can try: pick a single useful resource this week — money, time, knowledge or an unused thing — and give a share of it away freely. Watch what happens to the fear of not having enough. Generosity shrinks it faster than reasoning does.",
+      "virtueName": "Generosity",
+      "metaDescription": "Greed on the 7 Deadly Sins Test: what a high Greed score means, how it shows up when you divide resources, and the virtue of Generosity that counters it. Take the free 21-question test."
+    },
+    "lust": {
+      "name": "Lust",
+      "subtitle": "The sin of desire that steers.",
+      "summary": "Lust shows up when attraction starts to steer your plans.",
+      "meaning": "In the classic list, Lust is desire that overrides judgment — attraction strong enough to reorder your priorities. On this test it measures how often a strong pull — romantic, sexual or simply exciting — tugs your attention away from what you had planned. Desire itself isn't the sin; it begins when the pull starts making your decisions.",
+      "pattern": "It can look like chasing the excitement of a new attraction even when it complicates things, losing hours to a person or a fantasy, or letting your plans slide because someone's attention feels more urgent. You may notice your intentions renegotiating themselves the moment the spark appears.",
+      "virtue": "Chastity is desire integrated, not deleted. One move you can try: before acting on an attraction, check two things in order — what you actually want, and where the other person's boundaries are. Naming both, even just to yourself, turns a pull into a choice.",
+      "virtueName": "Chastity",
+      "metaDescription": "Lust on the 7 Deadly Sins Test: what a high Lust score means, how attraction can steer your plans, and the virtue of Chastity that counters it. Take the free 21-question test."
+    },
+    "envy": {
+      "name": "Envy",
+      "subtitle": "The sin of someone else's win.",
+      "summary": "Envy shows up when other people's progress makes yours feel smaller.",
+      "meaning": "Envy is the pain of comparison: someone else gets something, and your own life deflates a little. On this test it measures how much other people's visible success discounts your own progress, and how hard it is to celebrate a friend's win without measuring your own life against it.",
+      "pattern": "It shows up as the reflex scroll — seeing what others show about their lives and feeling your week shrink in response. You may catch yourself re-weighing your own effort after a peer's announcement, or notice that their good news quietly made you worse at your own work.",
+      "virtue": "Kindness is admiration practiced out loud. One move you can try: when someone shares a win, congratulate them on one specific detail — “the way you shipped it before the deadline” — within a day. Specific praise interrupts the comparison loop better than general goodwill ever does.",
+      "virtueName": "Kindness",
+      "metaDescription": "Envy on the 7 Deadly Sins Test: what a high Envy score means, how comparison shrinks your own progress, and the virtue of Kindness that counters it. Take the free 21-question test."
+    },
+    "gluttony": {
+      "name": "Gluttony",
+      "subtitle": "The sin of past the point of enough.",
+      "summary": "Gluttony shows up when feeling satisfied and actually stopping stop matching.",
+      "meaning": "Gluttony is overconsumption as habit: continuing past the point of satisfaction — with food, drink, content, comfort or anything else that feels good. On this test it measures the gap between feeling satisfied and actually stopping, and whether stopping is even on the table as an option.",
+      "pattern": "It shows up as the automatic second helping, the next episode, the extra scroll long after the enjoyment faded. You may reach for more without thinking whenever something feels good, and only notice afterwards that the pleasure ended several rounds earlier.",
+      "virtue": "Temperance is the pause that rebuilds the off-ramp. One move you can try: before another serving, episode or purchase, stop for one breath and ask, “Am I still enjoying this, or just continuing?” That single check restores the stopping reflex.",
+      "virtueName": "Temperance",
+      "metaDescription": "Gluttony on the 7 Deadly Sins Test: what a high Gluttony score means, how it keeps you going past satisfaction, and the virtue of Temperance that counters it. Take the free 21-question test."
+    },
+    "wrath": {
+      "name": "Wrath",
+      "subtitle": "The sin of the heat that lingers.",
+      "summary": "Wrath shows up when the argument ends but you keep fighting it.",
+      "meaning": "Wrath is anger that outlives its cause: the flash response, the replayed argument, the slow burn that keeps paying interest. On this test it measures both halves — the snap, how fast you react when you feel slighted, and the residue, how long the heat keeps you.",
+      "pattern": "It shows up as the comeback you compose an hour too late, the grudge you re-run while doing the dishes, and the pause you can't take when someone annoys you. Your first impulse may be to snap back, and the episode usually ends long before your body believes it's over.",
+      "virtue": "Patience is the space between spark and response. One move you can try: before replying to anything that stings, take one slow breath and let it out fully. One breath rarely solves the problem — but it reliably hands the choice back to you.",
+      "virtueName": "Patience",
+      "metaDescription": "Wrath on the 7 Deadly Sins Test: what a high Wrath score means, how the heat lingers after arguments, and the virtue of Patience that counters it. Take the free 21-question test."
+    },
+    "sloth": {
+      "name": "Sloth",
+      "subtitle": "The sin of waiting for motivation.",
+      "summary": "Sloth shows up when starting waits for a feeling that never arrives.",
+      "meaning": "Sloth is not laziness — the classics define it as failing to act on what matters, often while staying busy with what doesn't. On this test it measures the gap between having time and using it: putting off small tasks, and waiting for motivation to carry the important ones.",
+      "pattern": "It shows up as the small task you postpone even when you have time, the important thing that needs “the right mood”, and the first step that stays theoretical. You may take the first step on a dull task only once motivation arrives — and motivation usually doesn't.",
+      "virtue": "Diligence is starting before the feeling. One move you can try: shrink the first step until it takes two minutes — open the document, write one line, wash one dish — and do it immediately. Action generates the motivation you were waiting for, not the other way around.",
+      "virtueName": "Diligence",
+      "metaDescription": "Sloth on the 7 Deadly Sins Test: what a high Sloth score means, how waiting for motivation works, and the virtue of Diligence that counters it. Take the free 21-question test."
+    }
+  },
+  "result": {
+    "titleTemplate": "Your Result: {sin} — 7 Deadly Sins Test",
+    "publicKicker": "The seven deadly sins",
+    "publicIntro": "This is the public reading of {sin} from the 7 Deadly Sins Test — anyone can read it without answering anything. When you take the 21-statement test yourself, this same page becomes your personal result with all seven of your scores.",
+    "yourResultKicker": "Your result",
+    "yourDominant": "Your dominant sin",
+    "yourDominantTwo": "Your two dominant sins",
+    "scoredLine": "You scored {score} of 12 on {sin}.",
+    "scoredLineDual": "You scored {score1} of 12 on {sin1} and {score2} of 12 on {sin2}.",
+    "scoreHeading": "Your seven scores",
+    "scoreNote": "Each sin scores 0–12 from three statements. Rows are in a fixed order so results can be compared side by side.",
+    "dominantTag": "Dominant",
+    "scoreRowAria": "{sin}: {score} out of 12, {percent} percent",
+    "shareImagesLabel": "Share as image",
+    "cardPortraitLabel": "Story card · 9:16",
+    "cardSquareLabel": "Square card · 1:1",
+    "preparingLabel": "Preparing…",
+    "shareLabel": "Share",
+    "downloadLabel": "Download",
+    "retryLabel": "Try again",
+    "cardError": "Couldn't create the image. You can try again, or copy the share text instead.",
+    "copyShare": "Copy share text",
+    "copied": "Copied ✓",
+    "copyFallback": "Clipboard isn't available — copy the text below:",
+    "shareTextSingle": "I'm {sin} ({score}/12). Which deadly sin are you? {url}",
+    "shareTextDual": "I'm {sin1} ({score1}/12) & {sin2} ({score2}/12). Which deadly sin are you? {url}",
+    "inviteNote": "This link includes your seven scores so your friend can compare with you.",
+    "inviteCopied": "Invite link copied ✓",
+    "otherSixHeading": "The other six sins",
+    "expandHint": "Open the full reading",
+    "secondReadingHint": "Your second dominant sin",
+    "compareHeading": "You and your friend",
+    "compareYou": "You",
+    "compareFriend": "Friend",
+    "compareNote": "Scores run 0–12. The marked row is each person's dominant sin.",
+    "compareVsOnly": "Your friend's dominant sin is {sin}. Their full scores weren't included in this link.",
+    "adSlotNote": "Ad slot — renders below the seven score rows only when ad material exists; hidden otherwise.",
+    "notYourPage": "This isn't your result page. Your reading lives at {url}."
+  },
+  "reading": {
+    "meaningHeading": "What {sin} means",
+    "patternHeading": "How {sin} can show up day to day",
+    "virtueHeading": "The virtue to try: {virtue}"
+  },
+  "share": {
+    "scoresLabel": "YOUR SCORES",
+    "dominantTag": "DOMINANT",
+    "ctaLine": "TAKE THE TEST"
+  },
+  "notfound": {
+    "heading": "Page not found",
+    "body": "That page doesn't exist. The seven sin readings and the test itself are one click away.",
+    "backHome": "Take the test"
+  }
+}
