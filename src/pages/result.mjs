@@ -73,9 +73,18 @@ export function renderResult(t, sin) {
     '      <div class="share-images" data-share-images>\n' +
     '        <span class="share-images-label">' + esc(t.result.shareImagesLabel) + '</span>\n' +
     '        <div class="share-images-buttons">\n' +
-    '          <button type="button" class="btn btn-card" data-card="portrait" disabled></button>\n' +
-    '          <button type="button" class="btn btn-card" data-card="square" disabled></button>\n' +
+    '          <button type="button" class="btn btn-card" aria-haspopup="dialog" data-card="portrait" disabled></button>\n' +
+    '          <button type="button" class="btn btn-card" aria-haspopup="dialog" data-card="square" disabled></button>\n' +
     '        </div>\n' +
+    `        <dialog class="card-preview" aria-labelledby="preview-title">
+              <header><h2 id="preview-title"></h2><form method="dialog"><button class="preview-close" aria-label="${esc(t.result.closePreview)}" autofocus>×</button></form></header>
+              <img class="preview-image" alt="${esc(t.result.cardPreviewAlt)}">
+              <div class="preview-actions">
+                <a class="btn btn-primary" data-save-card download>${esc(t.result.downloadLabel)}</a>
+                <button type="button" class="btn" data-system-share hidden>${esc(t.result.shareLabel)}</button>
+              </div>
+              <p class="card-error" role="status" data-share-error hidden>${esc(t.result.shareError)}</p>
+            </dialog>` +
     '        <button type="button" class="btn btn-ghost" data-invite>' + esc(t.common.compareWithFriend) + '</button>\n' +
     '        <p class="invite-note" data-invite-note hidden>' + esc(t.result.inviteNote) + '</p>\n' +
     '        <p class="card-error" data-card-error hidden>' + esc(t.result.cardError) + '</p>\n' +

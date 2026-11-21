@@ -91,11 +91,7 @@ export function initShareCards({ portraitBtn, squareBtn, errorEl, getData }) {
       btn.textContent = t.result.retryLabel;
     } else {
       btn.disabled = false;
-      const canShare =
-        typeof navigator.share === 'function' &&
-        typeof File !== 'undefined' &&
-        navigator.canShare;
-      btn.textContent = canShare ? t.result.shareLabel : t.result.downloadLabel;
+      btn.textContent = t.result.previewLabel;
     }
     const format = kind === 'portrait' ? t.result.cardPortraitLabel : t.result.cardSquareLabel;
     btn.textContent = format + ' · ' + btn.textContent;
@@ -117,49 +113,60 @@ export function initShareCards({ portraitBtn, squareBtn, errorEl, getData }) {
     updateButton(kind);
   }
 
-  function download(kind) {
-    const blob = blobs[kind];
-    if (!blob) return;
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = fileName(kind);
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 5000);
-    track('share_success', { method: 'download', card: kind });
-  }
+  const dialog = document.querySelector('.card-preview');
+  const image = dialog.querySelector('.preview-image');
+  const save = dialog.querySelector('[data-save-card]');
+  const share = dialog.querySelector('[data-system-share]');
+  const shareError = dialog.querySelector('[data-share-error]');
+  let selectedKind;
+  let shareData;
 
-  function onClick(kind) {
-    track('share_click', { kind: 'card', card: kind });
+  function preview(kind) {
     const blob = blobs[kind];
     if (!blob) {
-      // Retry path after a failed generation.
       prepare(kind);
       return;
     }
-    const file = new File([blob], fileName(kind), { type: 'image/png' });
-    const shareData = { files: [file], title: t.site.name, text: shareTextShort() };
-    // Call share() synchronously within the user gesture (Safari requirement);
-    // user cancel (AbortError) stays on the page and never fires success.
-    if (typeof navigator.share === 'function' && navigator.canShare && navigator.canShare(shareData)) {
-      navigator
-        .share(shareData)
-        .then(() => track('share_success', { method: 'share', card: kind }))
-        .catch((err) => {
-          if (err && err.name !== 'AbortError') download(kind);
-        });
-      return;
+    selectedKind = kind;
+    const name = fileName(kind);
+    const url = URL.createObjectURL(blob);
+    image.src = url;
+    save.href = url;
+    save.download = name;
+    dialog.querySelector('h2').textContent =
+      kind === 'portrait' ? t.result.cardPortraitLabel : t.result.cardSquareLabel;
+    shareError.hidden = true;
+    shareData = null;
+    if (navigator.share && navigator.canShare && typeof File === 'function') {
+      const payload = { files: [new File([blob], name, { type: blob.type })], title: t.site.name, text: shareTextShort() };
+      if (navigator.canShare(payload)) shareData = payload;
     }
-    download(kind);
+    share.hidden = !shareData;
+    dialog.showModal();
   }
 
-  portraitBtn.addEventListener('click', () => onClick('portrait'));
-  squareBtn.addEventListener('click', () => onClick('square'));
-
-  updateButton('portrait');
-  updateButton('square');
+  dialog.addEventListener('close', () => {
+    URL.revokeObjectURL(image.src);
+    image.removeAttribute('src');
+    save.removeAttribute('href');
+    shareData = null;
+  });
+  save.addEventListener('click', () => {
+    track('share_click', { kind: 'card', card: selectedKind });
+    track('share_success', { method: 'download', card: selectedKind });
+  });
+  share.addEventListener('click', async () => {
+    const kind = selectedKind;
+    track('share_click', { kind: 'card', card: kind });
+    try {
+      await navigator.share(shareData);
+      track('share_success', { method: 'share', card: kind });
+    } catch (error) {
+      shareError.hidden = error.name === 'AbortError';
+    }
+  });
+  portraitBtn.addEventListener('click', () => preview('portrait'));
+  squareBtn.addEventListener('click', () => preview('square'));
 
   // Prepare both blobs once the result is on screen (spec: 结果可用时准备 Blob).
   prepare('portrait');

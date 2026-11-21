@@ -49,7 +49,7 @@ Key behaviors (spec cross-refs in `doc/page-architecture.md`):
 - Dual dominant when top1 − top2 ≤ 1; ties break by fixed slug order
   `pride greed lust envy gluttony wrath sloth`.
 - Share: copy text (clipboard + fallback box), 1080×1920 and 1080×1080 PNG cards
-  drawn in a module worker (main-thread fallback), native share with download fallback.
+  drawn in a module worker (main-thread fallback), with an in-page preview, PNG download, and system sharing on supported browsers.
 - Invite: `/?vs={first}#s={totals}` carries the seven totals in the hash; invalid
   fragments degrade to a normal quiz; compare rows render only with real scores.
 - Events (`window` CustomEvent `sdst:track` + `window.__sdstEvents`): `start`,
