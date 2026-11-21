@@ -33,6 +33,9 @@
 /* ── Base ───────────────────────────────────────────────────────────────── */
 * { box-sizing: border-box; }
 
+/* Author display rules (e.g. .btn) must never defeat the hidden attribute. */
+[hidden] { display: none !important; }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -384,6 +387,7 @@ a { color: var(--accent); }
   overflow: hidden;
 }
 .score-bar-fill {
+  display: block;
   height: 100%;
   width: 0;
   border-radius: 5px;
@@ -455,9 +459,15 @@ a { color: var(--accent); }
 .compare h2 { margin: 0 0 4px; font-size: 20px; }
 .compare-note { margin: 0 0 14px; font-size: 13px; color: var(--muted); }
 
+.compare-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .compare-row {
   display: grid;
-  grid-template-columns: 92px 1fr 1fr;
+  grid-template-columns: 92px 1fr;
   gap: 10px;
   align-items: center;
   padding: 10px 0;
@@ -487,7 +497,7 @@ a { color: var(--accent); }
 .compare-vs-only { margin: 0; color: var(--muted); font-size: 14px; }
 
 @media (max-width: 380px) {
-  .compare-row { grid-template-columns: 74px 1fr 1fr; gap: 8px; }
+  .compare-row { grid-template-columns: 74px 1fr; gap: 8px; }
   .compare-val { min-width: 50px; }
 }
 
