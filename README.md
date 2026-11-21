@@ -1,8 +1,15 @@
 # 7 Deadly Sins Test
 
 Static quiz site for **7deadlysinstest.one**: 21 statements → seven 0–12 scores →
-your dominant deadly sin. Everything is scored and stored on the visitor's device —
-no backend, no cookies, no answer ever leaves the browser.
+your dominant deadly sin. Answers are scored and stored on the visitor's device —
+no backend, and answers/scores are never uploaded.
+
+Analytics (GA4 via GTM container + Microsoft Clarity) is injected by
+`src/site/analytics.mjs` **only after a runtime hostname guard passes**: `file:`,
+localhost/`*.localhost`, `127.0.0.1`/`::1`/`0.0.0.0`, `*.local`/`.test`/
+`.example`/`.invalid`, private/reserved IPv4 ranges and IPv6 ULA/link-local
+never load the trackers. The guard is unit-tested (`test/analytics.test.mjs`),
+and the shipped inline snippet is generated from the same function sources.
 
 Implements `doc/page-architecture.md` (workorders A–F).
 
