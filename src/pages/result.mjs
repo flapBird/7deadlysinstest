@@ -52,7 +52,7 @@ export function renderResult(t, sin) {
 
   const mainHtml =
     '    <section class="result-hero">\n' +
-    '      <img class="result-art" src="/assets/temptation.webp" width="640" height="640" alt="">\n' +
+    '      <img class="result-art" src="/assets/' + sin + '.webp" width="320" height="320" alt="">\n' +
     '      <p class="kicker" data-kicker>' + esc(t.result.publicKicker) + '</p>\n' +
     '      <h1 class="result-title" data-title>' + esc(s.name) + '</h1>\n' +
     '      <p class="result-subtitle" data-subtitle>' + esc(s.subtitle) + '</p>\n' +

@@ -224,7 +224,7 @@ await write(
   path.join(DIST, 'assets/main.css'),
   minifyCss(await readFile(path.join(SRC, 'styles/main.css'), 'utf8'))
 );
-for (const asset of ['favicon.svg', 'apple-touch-icon.png', 'temptation.webp']) {
+for (const asset of ['favicon.svg', 'apple-touch-icon.png', 'temptation.webp', ...SIN_ORDER.map(sin => sin + '.webp')]) {
   await copyFile(path.join(SRC, 'assets', asset), path.join(DIST, 'assets', asset));
 }
 if (existsSync(path.join(SRC, 'assets/og.png'))) {

@@ -594,34 +594,58 @@ a { color: var(--accent); }
 
 /* ── Knowledge entry on home ────────────────────────────────────────────── */
 .knowledge { margin-top: 44px; border-top: 1px solid var(--line); padding-top: 26px; }
-.knowledge h2 { font-size: 22px; margin: 0 0 6px; }
-.knowledge-intro { margin: 0 0 16px; color: var(--muted); font-size: 14px; }
-
+.knowledge h2, .quiz-guide h2 {
+  font-size: clamp(28px,4vw,42px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  margin: 0 0 12px;
+}
+.knowledge-intro { max-width: 76ch; margin: 0 0 22px; color: var(--muted); }
 .knowledge-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+}
+.knowledge-link {
   display: flex;
   flex-direction: column;
-}
-.knowledge-item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 8px;
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-}
-.knowledge-item:first-child { border-top: 0; padding-top: 0; }
-.knowledge-link {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 17px;
-  text-decoration: none;
+  height: 100%;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb,var(--sin) 40%,var(--line));
+  border-radius: 52px 52px 8px 8px;
+  background: linear-gradient(180deg,color-mix(in srgb,var(--sin) 12%,var(--bg)),var(--card) 70%);
   color: var(--text);
+  text-decoration: none;
 }
-.knowledge-link:hover { color: var(--accent); }
-.knowledge-summary { color: var(--muted); font-size: 14px; }
+.knowledge-link:hover, .knowledge-link:focus-visible { border-color: var(--sin); }
+.knowledge-link img { width: 100%; height: auto; aspect-ratio: 1; mix-blend-mode: lighten; }
+.knowledge-link h3 { margin: 8px 0; color: var(--sin); font-size: 24px; line-height: 1.1; }
+.knowledge-link p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 14px; }
+.virtue { display: block; margin-top: auto; border-top: 1px solid var(--line); padding-top: 8px; font-family: var(--font-display); font-style: italic; }
+.virtue small { display: block; color: var(--muted); font: 11px/1.6 var(--font-body); }
+.quiz-guide { display: grid; gap: 24px; margin-top: 48px; }
+.quiz-guide section { padding: clamp(16px,2.4vw,28px); background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+.quiz-guide h2 { font-size: clamp(24px,3vw,32px); margin-bottom: 20px; }
+.quiz-guide ol { padding-left: 1.6em; margin: 0; }
+.quiz-guide li::marker { font-family: var(--font-display); color: var(--accent); }
+.quiz-guide li + li { margin-top: 18px; }
+.quiz-guide li h3 { font-size: 19px; margin: 0; }
+.quiz-guide p { margin: 5px 0 0; color: var(--muted); line-height: 1.6; font-size: 15px; }
+.quiz-guide details { border-top: 1px solid var(--line); }
+.quiz-guide summary { cursor: pointer; padding: 14px 0; font-weight: 600; }
+.quiz-guide details p { margin: 0 0 16px; }
+.footer-domain { display: inline-block; color: var(--text); font: 600 20px var(--font-display); text-underline-offset: 4px; margin-bottom: 8px; }
+@media (min-width: 660px) {
+  .knowledge-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .quiz-guide { grid-template-columns: 1fr 1.2fr; }
+}
+@media (min-width: 1080px) {
+  .knowledge-list { grid-template-columns: repeat(7,minmax(0,1fr)); }
+}
 
 /* 404 */
 .notfound { margin-top: 40px; }
@@ -660,10 +684,6 @@ a { color: var(--accent); }
 .quiz-option::after { content: ''; margin-left: auto; width: 10px; height: 10px; border-radius: 50%; border: 1px solid #ad9b84; flex: none; }
 .quiz-option.is-selected::after { background: var(--accent); border-color: var(--accent); }
 .quiz-save-note, .quiz-hint { font-size: 12px; margin-top: 12px; }
-.knowledge h2 { font-size: clamp(30px,4vw,44px); font-weight: 400; letter-spacing: -.04em; }
-.knowledge-list { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit,minmax(min(100%,230px),1fr)); }
-.knowledge-item, .knowledge-item:first-child { display: grid; align-content: start; gap: 8px; padding: 16px; border: 1px solid var(--line); border-top: 2px solid var(--sin); border-radius: 4px; background: var(--card); }
-.knowledge-link { font-size: 23px; color: var(--sin); }
 .result-hero { display: flow-root; padding: clamp(18px,4vw,34px); border: 1px solid var(--line); border-top: 2px solid var(--sin); border-radius: 8px; background: var(--card); }
 .result-art { float: right; width: clamp(68px,18vw,160px); height: auto; margin: 0 0 10px 14px; mix-blend-mode: lighten; }
 .result-title { letter-spacing: -.045em; }

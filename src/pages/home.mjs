@@ -53,17 +53,24 @@ function quizShellHtml(t) {
 export function renderHome(t) {
   const knowledgeItems = SIN_ORDER.map((sin) => {
     const s = t.sins[sin];
-    return (
-      '<li class="knowledge-item" data-sin="' + sin + '">' +
-      '<a class="knowledge-link" href="' +
-      pathFor(SITE.defaultLocale, 'result', sin) +
-      '">' +
-      esc(s.name) +
-      '</a>' +
-      '<span class="knowledge-summary">' + esc(s.summary) + '</span>' +
-      '</li>'
-    );
-  }).join('\n      ');
+    return `<li class="knowledge-item" data-sin="${sin}">
+      <a class="knowledge-link" href="${pathFor(SITE.defaultLocale, 'result', sin)}">
+        <img src="/assets/${sin}.webp" alt="" width="320" height="320" loading="lazy" decoding="async">
+        <h3>${esc(s.name)}</h3>
+        <p>${esc(s.summary)}</p>
+        <span class="virtue"><small>${esc(t.home.virtueLabel)}</small>${esc(s.virtueName)}</span>
+      </a>
+    </li>`;
+  }).join('');
+
+  const guide = `<div class="quiz-guide">
+    <section><h2>${esc(t.home.howTitle)}</h2>
+      <ol>${t.home.steps.map(step => `<li><h3>${esc(step.title)}</h3><p>${esc(step.body)}</p></li>`).join('')}</ol>
+    </section>
+    <section id="faq"><h2>${esc(t.home.faqTitle)}</h2>
+      ${t.home.faq.map(item => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join('')}
+    </section>
+  </div>`;
 
   const mainHtml =
     '    <div class="home-spread"><header class="frontispiece">' +
@@ -73,11 +80,11 @@ export function renderHome(t) {
     '      <noscript><p class="noscript">' + esc(t.home.noscript) + '</p></noscript>\n' +
     '      ' + quizShellHtml(t) + '\n' +
     '    </div></div>\n' +
-    '    <section class="knowledge">\n' +
+    '    <section class="knowledge" id="seven-sins">\n' +
     '      <h2>' + esc(t.home.knowledgeTitle) + '</h2>\n' +
     '      <p class="knowledge-intro">' + esc(t.home.knowledgeIntro) + '</p>\n' +
     '      <ul class="knowledge-list">\n      ' + knowledgeItems + '\n      </ul>\n' +
-    '    </section>\n';
+    '    </section>\n' + guide;
 
   return documentShell({
     t,

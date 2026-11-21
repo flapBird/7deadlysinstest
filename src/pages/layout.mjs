@@ -44,6 +44,7 @@ export function resultHeader(t) {
 export function siteFooter(t) {
   return (
     '<footer class="site-foot">' +
+    '<a class="footer-domain" href="' + pathFor(SITE.defaultLocale, 'home') + '">' + esc(SITE.domain) + '</a>' +
     '<p>' + esc(t.common.footer.disclaimer) + '</p>' +
     '<p>' + esc(t.common.footer.privacy) + '</p>' +
     '<p class="foot-rights">' + esc(t.common.footer.rights) + '</p>' +

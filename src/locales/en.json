@@ -44,7 +44,50 @@
     "completedTop": "Your dominant sin: {sin} ({score}/12)",
     "completedNote": "Retake it if your week has changed you.",
     "knowledgeTitle": "The seven deadly sins",
-    "knowledgeIntro": "Every score maps to one classic sin. Each reading is public — start anywhere."
+    "knowledgeIntro": "Think of the last time you wanted the credit, checked someone else's progress, or put off a small task. This test uses the seven deadly sins as names for those everyday impulses. Open a card to explore the habit and the virtue that can balance it.",
+    "virtueLabel": "Balancing virtue",
+    "howTitle": "How to take the test",
+    "steps": [
+      {
+        "title": "Think of a recent week",
+        "body": "For each of the 21 statements, choose how closely it fits your usual reaction. If your answer depends on the day, pick what happens most often."
+      },
+      {
+        "title": "Look across all seven scores",
+        "body": "Three statements contribute to each score out of 12. Read your highest one first, then look for a second tendency that shows up in a different part of your life."
+      },
+      {
+        "title": "Compare notes with a friend",
+        "body": "Save a story or square card for your feed. For a side-by-side comparison, choose “Compare with a friend” and send the invitation to someone who wants to take the test."
+      }
+    ],
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      {
+        "q": "How long does the test take?",
+        "a": "Allow about three minutes. Each choice moves you to the next statement. Use the back arrow if you want to change an earlier answer."
+      },
+      {
+        "q": "What does a score of 9/12 mean?",
+        "a": "Each of the three answers for a tendency contributes up to four points. One statement describes the opposite habit and is scored in reverse. A 9 means your answers often fit that tendency. The percentage shows how much of the possible score you reached."
+      },
+      {
+        "q": "Why did I get two dominant sins?",
+        "a": "Your two highest scores get equal billing when they are tied or just one point apart. For example, Wrath at 10 and Envy at 9 appear together. You can still see the other five scores underneath."
+      },
+      {
+        "q": "Can I finish later?",
+        "a": "Yes. With browser storage available, reopen the test in the same browser on the same device to resume. Clearing the site's stored data removes your progress."
+      },
+      {
+        "q": "What will my friend see?",
+        "a": "A saved image shows your seven scores. A comparison invitation includes those totals so your friend can see them beside their own after finishing. Your individual choices stay on your device."
+      },
+      {
+        "q": "Does my result describe my whole personality?",
+        "a": "It describes how you answered a short set of everyday situations. Pick one example in the reading that feels familiar and try the suggested balancing habit the next time it happens."
+      }
+    ]
   },
   "quiz": {
     "q01": "I want others to notice when I get something right.",
@@ -80,7 +123,7 @@
     "pride": {
       "name": "Pride",
       "subtitle": "The sin of needing to be above.",
-      "summary": "Pride shows up when being right starts to matter more than being honest.",
+      "summary": "A friend corrects a small detail. You spend the rest of dinner working out how to prove your point.",
       "meaning": "Pride, in the classic list, is the instinct that puts your own image above the truth. On this test it doesn't measure confidence — it measures how much being noticed, being right and being above criticism shapes your reactions. The two are easy to tell apart: confidence can admit a mistake, while pride has to defend one.",
       "pattern": "It usually appears in small defenses rather than grand ones. You may get defensive the moment someone points out your mistake, replay the scene to prove you were right, or want others to notice when you get something right — and feel a quiet drop when they don't. Corrections can start to feel like verdicts about your worth instead of notes about your work.",
       "virtue": "Humility is not thinking less of yourself — it's thinking accurately about yourself. One move you can try this week: when someone corrects you, restate the problem they pointed out before you respond (“So the issue is that I sent it without checking”). It buys a breath, proves you heard it, and turns a defense into a fix.",
@@ -90,7 +133,7 @@
     "greed": {
       "name": "Greed",
       "subtitle": "The sin of never enough.",
-      "summary": "Greed shows up when “enough” keeps moving further away.",
+      "summary": "You reach the savings goal you set last year. Before you celebrate, you move the target again.",
       "meaning": "Greed is the hoarding instinct: holding more than you need because letting go feels like losing. On this test it measures how you split resources, how hard sharing something valuable feels, and whether the pull to keep acquiring continues past the point of usefulness. It isn't ambition — ambition builds things; greed clutches them.",
       "pattern": "It often sounds like quiet arithmetic. You may look for the larger share when a reward is divided, resist lending something you care about, keep stacking subscriptions, food or stuff you don't use, and keep wanting more even when you have enough. The strange part: the extra rarely gets enjoyed — it just gets held.",
       "virtue": "Generosity is releasing one piece on purpose, before you're asked. One move you can try: pick a single useful resource this week — money, time, knowledge or an unused thing — and give a share of it away freely. Watch what happens to the fear of not having enough. Generosity shrinks it faster than reasoning does.",
@@ -100,7 +143,7 @@
     "lust": {
       "name": "Lust",
       "subtitle": "The sin of desire that steers.",
-      "summary": "Lust shows up when attraction starts to steer your plans.",
+      "summary": "One message from someone you fancy, and the evening you planned suddenly feels negotiable.",
       "meaning": "In the classic list, Lust is desire that overrides judgment — attraction strong enough to reorder your priorities. On this test it measures how often a strong pull — romantic, sexual or simply exciting — tugs your attention away from what you had planned. Desire itself isn't the sin; it begins when the pull starts making your decisions.",
       "pattern": "It can look like chasing the excitement of a new attraction even when it complicates things, losing hours to a person or a fantasy, or letting your plans slide because someone's attention feels more urgent. You may notice your intentions renegotiating themselves the moment the spark appears.",
       "virtue": "Chastity is desire integrated, not deleted. One move you can try: before acting on an attraction, check two things in order — what you actually want, and where the other person's boundaries are. Naming both, even just to yourself, turns a pull into a choice.",
@@ -110,7 +153,7 @@
     "envy": {
       "name": "Envy",
       "subtitle": "The sin of someone else's win.",
-      "summary": "Envy shows up when other people's progress makes yours feel smaller.",
+      "summary": "A friend calls with good news. Even as you celebrate, you quietly measure the distance from their life to yours.",
       "meaning": "Envy is the pain of comparison: someone else gets something, and your own life deflates a little. On this test it measures how much other people's visible success discounts your own progress, and how hard it is to celebrate a friend's win without measuring your own life against it.",
       "pattern": "It shows up as the reflex scroll — seeing what others show about their lives and feeling your week shrink in response. You may catch yourself re-weighing your own effort after a peer's announcement, or notice that their good news quietly made you worse at your own work.",
       "virtue": "Kindness is admiration practiced out loud. One move you can try: when someone shares a win, congratulate them on one specific detail — “the way you shipped it before the deadline” — within a day. Specific praise interrupts the comparison loop better than general goodwill ever does.",
@@ -120,7 +163,7 @@
     "gluttony": {
       "name": "Gluttony",
       "subtitle": "The sin of past the point of enough.",
-      "summary": "Gluttony shows up when feeling satisfied and actually stopping stop matching.",
+      "summary": "The first bite was wonderful. Halfway through the last one, you realize you stopped tasting it a while ago.",
       "meaning": "Gluttony is overconsumption as habit: continuing past the point of satisfaction — with food, drink, content, comfort or anything else that feels good. On this test it measures the gap between feeling satisfied and actually stopping, and whether stopping is even on the table as an option.",
       "pattern": "It shows up as the automatic second helping, the next episode, the extra scroll long after the enjoyment faded. You may reach for more without thinking whenever something feels good, and only notice afterwards that the pleasure ended several rounds earlier.",
       "virtue": "Temperance is the pause that rebuilds the off-ramp. One move you can try: before another serving, episode or purchase, stop for one breath and ask, “Am I still enjoying this, or just continuing?” That single check restores the stopping reflex.",
@@ -130,7 +173,7 @@
     "wrath": {
       "name": "Wrath",
       "subtitle": "The sin of the heat that lingers.",
-      "summary": "Wrath shows up when the argument ends but you keep fighting it.",
+      "summary": "The conversation ended an hour ago. In your head, you’re still delivering the perfect comeback.",
       "meaning": "Wrath is anger that outlives its cause: the flash response, the replayed argument, the slow burn that keeps paying interest. On this test it measures both halves — the snap, how fast you react when you feel slighted, and the residue, how long the heat keeps you.",
       "pattern": "It shows up as the comeback you compose an hour too late, the grudge you re-run while doing the dishes, and the pause you can't take when someone annoys you. Your first impulse may be to snap back, and the episode usually ends long before your body believes it's over.",
       "virtue": "Patience is the space between spark and response. One move you can try: before replying to anything that stings, take one slow breath and let it out fully. One breath rarely solves the problem — but it reliably hands the choice back to you.",
@@ -140,7 +183,7 @@
     "sloth": {
       "name": "Sloth",
       "subtitle": "The sin of waiting for motivation.",
-      "summary": "Sloth shows up when starting waits for a feeling that never arrives.",
+      "summary": "One short reply sits in your inbox for days. Each time you see it, getting started feels a little harder.",
       "meaning": "Sloth is not laziness — the classics define it as failing to act on what matters, often while staying busy with what doesn't. On this test it measures the gap between having time and using it: putting off small tasks, and waiting for motivation to carry the important ones.",
       "pattern": "It shows up as the small task you postpone even when you have time, the important thing that needs “the right mood”, and the first step that stays theoretical. You may take the first step on a dull task only once motivation arrives — and motivation usually doesn't.",
       "virtue": "Diligence is starting before the feeling. One move you can try: shrink the first step until it takes two minutes — open the document, write one line, wash one dish — and do it immediately. Action generates the motivation you were waiting for, not the other way around.",
