@@ -11,7 +11,8 @@
     "compareWithFriend": "Compare with a friend",
     "back": "Back",
     "footer": {
-      "disclaimer": "Results are for reflection and entertainment — not diagnosis or moral judgment. Answers never leave your device.",
+      "disclaimer": "Results are for reflection and entertainment — not diagnosis or moral judgment. Your quiz answers are scored on this device and never sent to us.",
+      "privacy": "On the live site, anonymous usage is measured with Google Analytics 4 and Microsoft Clarity. Local and offline copies never load them.",
       "rights": "© 2026 7 Deadly Sins Test"
     }
   },

@@ -2,6 +2,7 @@
 import { SITE } from '../site/config.mjs';
 import { pathFor } from '../site/paths.mjs';
 import { SIN_ORDER } from '../quiz/questions.mjs';
+import { ANALYTICS_SNIPPET } from '../site/analytics.mjs';
 
 export function esc(value) {
   return String(value)
@@ -44,6 +45,7 @@ export function siteFooter(t) {
   return (
     '<footer class="site-foot">' +
     '<p>' + esc(t.common.footer.disclaimer) + '</p>' +
+    '<p>' + esc(t.common.footer.privacy) + '</p>' +
     '<p class="foot-rights">' + esc(t.common.footer.rights) + '</p>' +
     '</footer>'
   );
@@ -97,6 +99,7 @@ export function documentShell({
     '  <link rel="stylesheet" href="/assets/main.css" />\n' +
     (preloadHtml ? '  ' + preloadHtml + '\n' : '') +
     '  ' + ldScripts + '\n' +
+    '  ' + ANALYTICS_SNIPPET + '\n' +
     '</head>\n' +
     bodyTag + '\n' +
     colorBand() + '\n' +
