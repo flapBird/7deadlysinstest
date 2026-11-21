@@ -74,16 +74,18 @@ export function decodeInviteScores(str) {
 
 // A valid invite needs a legal vs slug, seven legal totals, and the first dominant
 // of those totals must match vs. Scores may be missing entirely (vs-only invite).
+// Returns { vs, scores: number[7] } with values in SIN_ORDER, { vs, scores: null }
+// for a vs-only invite, or null for an invalid invite.
 export function validateInvite(vs, scoresStr) {
   if (!SIN_SET.has(vs)) return null;
   if (scoresStr == null || scoresStr === '') {
     return { vs, scores: null };
   }
-  const scores = decodeInviteScores(scoresStr);
-  if (!scores) return null;
-  const first = topSins(rankSins(scores)).first;
+  const totals = decodeInviteScores(scoresStr);
+  if (!totals) return null;
+  const first = topSins(rankSins(totals)).first;
   if (first.sin !== vs) return null;
-  return { vs, scores };
+  return { vs, scores: SIN_ORDER.map((sin) => totals[sin]) };
 }
 
 // Build the invite URL for a finished result.

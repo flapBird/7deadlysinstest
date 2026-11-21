@@ -183,7 +183,7 @@
     "compareNote": "Scores run 0–12. The marked row is each person's dominant sin.",
     "compareVsOnly": "Your friend's dominant sin is {sin}. Their full scores weren't included in this link.",
     "adSlotNote": "Ad slot — renders below the seven score rows only when ad material exists; hidden otherwise.",
-    "notYourPage": "This isn't your result page. Your reading lives at {url}."
+    "notYourPage": "This isn't your result page."
   },
   "reading": {
     "meaningHeading": "What {sin} means",
