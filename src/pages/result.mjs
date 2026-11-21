@@ -52,6 +52,7 @@ export function renderResult(t, sin) {
 
   const mainHtml =
     '    <section class="result-hero">\n' +
+    '      <img class="result-art" src="/assets/temptation.webp" width="640" height="640" alt="">\n' +
     '      <p class="kicker" data-kicker>' + esc(t.result.publicKicker) + '</p>\n' +
     '      <h1 class="result-title" data-title>' + esc(s.name) + '</h1>\n' +
     '      <p class="result-subtitle" data-subtitle>' + esc(s.subtitle) + '</p>\n' +
@@ -75,6 +76,8 @@ export function renderResult(t, sin) {
     '          <button type="button" class="btn btn-card" data-card="portrait" disabled></button>\n' +
     '          <button type="button" class="btn btn-card" data-card="square" disabled></button>\n' +
     '        </div>\n' +
+    '        <button type="button" class="btn btn-ghost" data-invite>' + esc(t.common.compareWithFriend) + '</button>\n' +
+    '        <p class="invite-note" data-invite-note hidden>' + esc(t.result.inviteNote) + '</p>\n' +
     '        <p class="card-error" data-card-error hidden>' + esc(t.result.cardError) + '</p>\n' +
     '      </div>\n' +
     '    </section>\n' +
@@ -105,8 +108,6 @@ export function renderResult(t, sin) {
     '      </div>\n' +
     '      <div class="actions-personal" data-actions-personal hidden>\n' +
     '        <button type="button" class="btn btn-secondary" data-retake>' + esc(t.common.retake) + '</button>\n' +
-    '        <button type="button" class="btn btn-ghost" data-invite>' + esc(t.common.compareWithFriend) + '</button>\n' +
-    '        <p class="invite-note" data-invite-note hidden>' + esc(t.result.inviteNote) + '</p>\n' +
     '      </div>\n' +
     '    </section>\n';
 

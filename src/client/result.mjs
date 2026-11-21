@@ -178,7 +178,7 @@ function hydratePersonal(record) {
   $('[data-retake]').addEventListener('click', () => {
     const store = createRecordStore();
     store.save(freshRecord(record.invite));
-    window.location.assign(pathFor(LOCALE, 'home'));
+    store.navigate(pathFor(LOCALE, 'home'));
   });
 
   const inviteBtn = $('[data-invite]');

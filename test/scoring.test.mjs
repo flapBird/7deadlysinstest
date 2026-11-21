@@ -137,6 +137,7 @@ test('record sanitization: quiz drafts round-trip, bad archives reset', () => {
   assert.deepEqual(clean.invite.scores, [4, 6, 3, 5, 2, 11, 7]);
   assert.equal(clean.started, true);
 
+  assert.equal(sanitizeRecord({ ...draft, cursor: 7 }), null);
   assert.equal(sanitizeRecord({ ...draft, cursor: 21 }), null);
   assert.equal(sanitizeRecord({ ...draft, cursor: -1 }), null);
   assert.equal(sanitizeRecord({ ...draft, answersById: { q01: 6 } }), null);

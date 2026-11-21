@@ -54,7 +54,7 @@ export function renderHome(t) {
   const knowledgeItems = SIN_ORDER.map((sin) => {
     const s = t.sins[sin];
     return (
-      '<li class="knowledge-item">' +
+      '<li class="knowledge-item" data-sin="' + sin + '">' +
       '<a class="knowledge-link" href="' +
       pathFor(SITE.defaultLocale, 'result', sin) +
       '">' +
@@ -66,10 +66,13 @@ export function renderHome(t) {
   }).join('\n      ');
 
   const mainHtml =
-    '    <div class="quiz-shell" data-quiz>\n' +
+    '    <div class="home-spread"><header class="frontispiece">' +
+    '<img class="front-art" src="/assets/temptation.webp" alt="" width="640" height="640">' +
+    '<h2>' + esc(t.site.tagline) + '</h2><p>' + esc(t.home.intro) + '</p></header>' +
+    '<div class="quiz-shell" data-quiz>\n' +
     '      <noscript><p class="noscript">' + esc(t.home.noscript) + '</p></noscript>\n' +
     '      ' + quizShellHtml(t) + '\n' +
-    '    </div>\n' +
+    '    </div></div>\n' +
     '    <section class="knowledge">\n' +
     '      <h2>' + esc(t.home.knowledgeTitle) + '</h2>\n' +
     '      <p class="knowledge-intro">' + esc(t.home.knowledgeIntro) + '</p>\n' +

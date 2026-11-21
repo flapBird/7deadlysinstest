@@ -1,31 +1,11 @@
 // Draft/result persistence (spec §2 计分、保存与恢复).
 // Versioned localStorage key; strict validation on read (bad archive → fresh quiz);
-// graceful in-memory fallback when storage is unavailable (tab-only, flagged).
+// Current history entry carries the result across navigation if storage is unavailable.
 import { QUESTIONS, SIN_ORDER, MAX_SCORE } from '../quiz/questions.mjs';
 import { isValidAnswer } from '../quiz/scoring.mjs';
 
 const KEY = 'sdst:v1';
 const VERSION = 1;
-
-function memoryStorage() {
-  const map = new Map();
-  return {
-    getItem: (k) => (map.has(k) ? map.get(k) : null),
-    setItem: (k, v) => map.set(k, String(v)),
-    removeItem: (k) => map.delete(k),
-  };
-}
-
-function pickStorage() {
-  try {
-    const probe = '__sdst_probe__';
-    window.localStorage.setItem(probe, '1');
-    window.localStorage.removeItem(probe);
-    return { backend: window.localStorage, persistent: true };
-  } catch {
-    return { backend: memoryStorage(), persistent: false };
-  }
-}
 
 export function freshRecord(invite = null) {
   return {
@@ -84,6 +64,7 @@ export function sanitizeRecord(raw) {
         answersById[q.id] = v;
       }
     }
+    if (QUESTIONS.slice(0, cursor).some((q) => answersById[q.id] === undefined)) return null;
     return {
       version: VERSION,
       phase: 'quiz',
@@ -115,30 +96,46 @@ export function sanitizeRecord(raw) {
 }
 
 export function createRecordStore() {
-  const { backend, persistent } = pickStorage();
+  let persistent = true;
+  try {
+    window.localStorage.setItem('__sdst_probe__', '1');
+    window.localStorage.removeItem('__sdst_probe__');
+  } catch {
+    persistent = false;
+  }
   return {
-    persistent,
+    get persistent() { return persistent; },
     load() {
+      const entry = sanitizeRecord(history.state?.[KEY]);
+      if (entry) return entry;
       try {
-        const raw = JSON.parse(backend.getItem(KEY) || 'null');
-        return sanitizeRecord(raw);
+        return sanitizeRecord(JSON.parse(window.localStorage.getItem(KEY)));
       } catch {
         return null;
       }
     },
     save(record) {
-      try {
-        backend.setItem(KEY, JSON.stringify(record));
-      } catch {
-        /* storage may reject mid-session; the in-memory copy keeps this tab going */
+      if (persistent) {
+        try {
+          window.localStorage.setItem(KEY, JSON.stringify(record));
+          if (history.state?.[KEY]) history.replaceState({ ...history.state, [KEY]: null }, '');
+          return;
+        } catch {
+          persistent = false;
+        }
       }
+      history.replaceState({ ...history.state, [KEY]: record }, '');
     },
-    clear() {
-      try {
-        backend.removeItem(KEY);
-      } catch {
-        /* ignore */
+    navigate(path, replace = false) {
+      if (persistent) {
+        if (replace) location.replace(path);
+        else location.assign(path);
+        return;
       }
+      // Carry the tab's record across the document load without putting it in the URL.
+      if (replace) history.replaceState(history.state, '', path);
+      else history.pushState(history.state, '', path);
+      location.reload();
     },
   };
 }

@@ -83,7 +83,7 @@ export function initShareCards({ portraitBtn, squareBtn, errorEl, getData }) {
   function updateButton(kind) {
     const btn = kind === 'portrait' ? portraitBtn : squareBtn;
     const state = states[kind];
-    if (state === 'busy') {
+    if (state === 'idle' || state === 'busy') {
       btn.disabled = true;
       btn.textContent = t.result.preparingLabel;
     } else if (state === 'error') {
@@ -97,6 +97,8 @@ export function initShareCards({ portraitBtn, squareBtn, errorEl, getData }) {
         navigator.canShare;
       btn.textContent = canShare ? t.result.shareLabel : t.result.downloadLabel;
     }
+    const format = kind === 'portrait' ? t.result.cardPortraitLabel : t.result.cardSquareLabel;
+    btn.textContent = format + ' · ' + btn.textContent;
   }
 
   async function prepare(kind) {
@@ -160,9 +162,6 @@ export function initShareCards({ portraitBtn, squareBtn, errorEl, getData }) {
   updateButton('square');
 
   // Prepare both blobs once the result is on screen (spec: 结果可用时准备 Blob).
-  const schedule = window.requestIdleCallback || ((fn) => setTimeout(fn, 350));
-  schedule(() => {
-    prepare('portrait');
-    prepare('square');
-  });
+  prepare('portrait');
+  prepare('square');
 }

@@ -28,6 +28,7 @@
   },
   "home": {
     "timeNote": "About 3 minutes",
+    "intro": "Rate 21 everyday habits to discover which of the seven sins leads your profile.",
     "statementLabel": "Statement",
     "counterAria": "Question {n} of 21",
     "progressAria": "Quiz progress: {answered} of 21 answered",

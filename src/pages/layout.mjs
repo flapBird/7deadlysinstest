@@ -25,7 +25,7 @@ export function colorBand() {
 export function homeHeader(t) {
   return (
     '<header class="site-head">' +
-    '<h1 class="site-name">' + esc(t.site.name) + '</h1>' +
+    '<h1 class="site-name"><img class="site-mark" src="/assets/favicon.svg" alt="" width="32" height="32">' + esc(t.site.name) + '</h1>' +
     '<span class="time-chip">' + esc(t.home.timeNote) + '</span>' +
     '</header>'
   );
@@ -35,7 +35,7 @@ export function resultHeader(t) {
   return (
     '<header class="site-head">' +
     '<a class="site-name site-name-link" href="' + pathFor(SITE.defaultLocale, 'home') + '">' +
-    esc(t.site.name) +
+    '<img class="site-mark" src="/assets/favicon.svg" alt="" width="32" height="32">' + esc(t.site.name) +
     '</a>' +
     '</header>'
   );
@@ -84,8 +84,9 @@ export function documentShell({
     '  <title>' + esc(title) + '</title>\n' +
     '  <meta name="description" content="' + esc(description) + '" />\n' +
     '  <link rel="canonical" href="' + canonical + '" />\n' +
-    '  <meta name="theme-color" content="#0f0c15" />\n' +
+    '  <meta name="theme-color" content="#171412" />\n' +
     '  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />\n' +
+    '  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />\n' +
     '  <meta property="og:site_name" content="' + esc(t.site.name) + '" />\n' +
     '  <meta property="og:type" content="website" />\n' +
     '  <meta property="og:title" content="' + esc(title) + '" />\n' +

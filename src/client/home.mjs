@@ -105,7 +105,7 @@ function handleAnswer(value, button) {
     track('complete');
     markSelected(button);
     const target = pathFor(LOCALE, 'result', topSins(rankSins(totals)).first.sin);
-    setTimeout(() => window.location.assign(target), Math.max(TRANSITION_MS, 120));
+    setTimeout(() => store.navigate(target), TRANSITION_MS);
     return;
   }
 
@@ -187,7 +187,7 @@ function boot() {
       record.invite = incomingInvite;
       store.save(record);
       const own = pathFor(LOCALE, 'result', topSins(rankSins(record.result.scores)).first.sin);
-      window.location.replace(own + '#compare');
+      store.navigate(own + '#compare', true);
       return;
     }
     record.invite = incomingInvite;
