@@ -1,0 +1,21 @@
+# 7 Deadly Sins Test
+
+> An English self-reflection quiz about everyday habits. Visitors answer 21 statements and receive seven scores from 0 to 12, with readings about their leading tendencies and balancing virtues.
+
+Three statements contribute to each score, including one reverse-scored statement. If the two highest scores are within one point, both appear as dominant. The public readings below describe each tendency. A visitor's personal scores are calculated in the browser.
+
+## Quiz and guide
+
+- [Take the test](https://7deadlysinstest.one/): Start the quiz or resume saved progress on the same device.
+- [Explore the seven sins](https://7deadlysinstest.one/#seven-sins): Illustrated cards with examples from everyday life.
+- [Frequently asked questions](https://7deadlysinstest.one/#faq): Scoring, dual results, saving progress, and sharing a comparison invitation.
+
+## Public result readings
+
+- [Pride](https://7deadlysinstest.one/result/pride/): Recognition, defensiveness, and humility.
+- [Greed](https://7deadlysinstest.one/result/greed/): Wanting more, sharing resources, and generosity.
+- [Lust](https://7deadlysinstest.one/result/lust/): Attraction, personal boundaries, and chastity.
+- [Envy](https://7deadlysinstest.one/result/envy/): Social comparison, celebrating others, and kindness.
+- [Gluttony](https://7deadlysinstest.one/result/gluttony/): Pleasure, noticing satisfaction, and temperance.
+- [Wrath](https://7deadlysinstest.one/result/wrath/): Anger, recurring arguments, and patience.
+- [Sloth](https://7deadlysinstest.one/result/sloth/): Avoidance, getting started, and diligence.

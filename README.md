@@ -1,76 +1,43 @@
 # 7 Deadly Sins Test
 
-Static quiz site for **7deadlysinstest.one**: 21 statements → seven 0–12 scores →
-your dominant deadly sin. Answers are scored and stored on the visitor's device —
-no backend, and answers/scores are never uploaded.
+[Take the test at 7deadlysinstest.one](https://7deadlysinstest.one/)
 
-Analytics (GA4 via GTM container + Microsoft Clarity) is injected by
-`src/site/analytics.mjs` **only after a runtime hostname guard passes**: `file:`,
-localhost/`*.localhost`, `127.0.0.1`/`::1`/`0.0.0.0`, `*.local`/`.test`/
-`.example`/`.invalid`, private/reserved IPv4 ranges and IPv6 ULA/link-local
-never load the trackers. The guard is unit-tested (`test/analytics.test.mjs`),
-and the shipped inline snippet is generated from the same function sources.
+Answer 21 questions about everyday habits in about three minutes. Your result includes a score for each of the seven deadly sins, a reading for your strongest tendency, and a virtue you can practice. If your two highest scores are within one point, both appear in your result.
 
-Implements `doc/page-architecture.md` (workorders A–F).
+[Explore the seven illustrated readings](https://7deadlysinstest.one/#seven-sins) · [Read the FAQ](https://7deadlysinstest.one/#faq)
 
-## Commands
+## Taking and sharing the test
 
-```bash
-npm run build   # render dist/ (zero dependencies, Node >= 18)
-npm run serve   # serve dist/ at http://localhost:8090
-npm test        # scoring / tie-break / invite / archive validation (node --test)
+- **Answer at your own pace.** Choose from five responses, or use keys 1–5. Use the back arrow to change an answer. When browser storage is available, you can close the tab and resume on the same device.
+- **Read your scores.** Three questions contribute to each score out of 12. Each public result page explains the tendency, gives everyday examples, and suggests a balancing habit.
+- **Share a result.** Preview a portrait or square PNG, save it, or share it through a supported device. A friend invitation includes your seven totals so you can compare results after your friend finishes.
+
+## Run locally
+
+Use Node.js 18 or later. The site builds with Node's standard library.
+
+```sh
+npm start
 ```
 
-Deploy anywhere static: build command `npm run build`, output directory `dist/`.
-Cloudflare Pages works as-is (trailing-slash directories + `404.html` are standard).
+Open [localhost:8090](http://localhost:8090/). After editing, run `npm run build` to refresh the files served from `dist/`. Run `npm test` to check scoring, saved progress, invitations, and analytics host detection.
 
-## Structure
+## Deploy to Cloudflare Workers
 
-```
-src/
-  site/       config (domain injection) + pathFor(locale, page, sin?)
-  quiz/       question bank (stable ids) + pure scoring/ranking/invite codec
-  locales/    en.json — every string: statements, options, readings, buttons,
-              a11y labels, share templates, canvas text, page metadata
-  pages/      layout / home / result / 404 templates
-  client/     quiz engine, personal result hydration, canvas cards (worker),
-              invite compare, copy actions, events
-  styles/     single stylesheet (minified at build)
-  assets/     favicon, og.png
-build.mjs     static build + content/link/question-constraint validation
-```
+Connect the repository to Workers Builds and use these settings.
 
-Key behaviors (spec cross-refs in `doc/page-architecture.md`):
+| Setting | Value |
+| --- | --- |
+| Worker name | `7deadlysinstest` |
+| Production branch | `main` |
+| Root directory | Repository root |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
 
-- `/` — one question at a time, keyboard 1–5 / ←, 180 ms transition, draft
-  persisted after every selection; closing mid-transition restores the next question.
-- `/result/{sin}/` — seven static, no-JS-readable readings; personal state
-  hydrates only when the visitor's own first dominant matches the slug.
-- Dual dominant when top1 − top2 ≤ 1; ties break by fixed slug order
-  `pride greed lust envy gluttony wrath sloth`.
-- Share: copy text (clipboard + fallback box), 1080×1920 and 1080×1080 PNG cards
-  drawn in a module worker (main-thread fallback), with an in-page preview, PNG download, and system sharing on supported browsers.
-- Invite: `/?vs={first}#s={totals}` carries the seven totals in the hash; invalid
-  fragments degrade to a normal quiz; compare rows render only with real scores.
-- Events (`window` CustomEvent `sdst:track` + `window.__sdstEvents`): `start`,
-  `complete`, `share_click`, `share_success` (method), `compare`. No answers,
-  scores, invite URLs or identifiers in event params. Wire a real collector later
-  without touching the call sites.
+[wrangler.jsonc](./wrangler.jsonc) sets the runtime compatibility date, serves static files from `dist/`, and selects the site's 404 page for unknown paths.
 
-## Language expansion
+## Maintaining the site
 
-Add `src/locales/{locale}.json`, register the locale in `build.mjs`, and extend
-`pathFor` prefixing (`/{locale}/…`). Add hreflang alternates when the second
-language ships.
+Edit the [English copy](./src/locales/en.json) for questions, readings, and interface text. The [scoring rules](./src/quiz/scoring.mjs) run in the browser. The [analytics configuration](./src/site/analytics.mjs) controls where Google Tag Manager and Microsoft Clarity load.
 
-## Verified
-
-- `node --test`: 13/13 (boundaries, tie-breaks, invite contract, archive sanitization).
-- Browser walkthrough (390×844): full completion path, refresh-restore, back/
-  re-select, public vs personal result states, notyours hint, 404, both share
-  cards (PNG output inspected), copy + invite + compare round-trip between two
-  simulated friends, broken/vs-only invites, retake.
-- Lighthouse (mobile emulation, headless Chromium): median of runs — home
-  Performance 100, result page Performance 100; Accessibility / Best Practices /
-  SEO 100 on both. Runs were done against the local dev server (no compression),
-  so production CDN scores should be equal or better.
+The [site index for language models](./llms.txt) is published at `/llms.txt` on each build. The [page architecture](./doc/page-architecture.md) describes the quiz, results, and sharing flows.

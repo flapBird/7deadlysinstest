@@ -188,6 +188,8 @@ await write(
   'User-agent: *\nAllow: /\n\nSitemap: ' + SITE.url + '/sitemap.xml\n'
 );
 
+await copyFile(path.join(ROOT, 'llms.txt'), path.join(DIST, 'llms.txt'));
+
 // Client content bundle generated from the locale file (single source of truth).
 await write(
   path.join(DIST, 'client', 'content.mjs'),
