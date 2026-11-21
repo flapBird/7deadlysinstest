@@ -210,7 +210,20 @@ for (const f of await readdir(path.join(SRC, 'quiz'))) {
 for (const f of await readdir(path.join(SRC, 'site'))) {
   await copyFile(path.join(SRC, 'site', f), path.join(DIST, 'site', f));
 }
-await copyFile(path.join(SRC, 'styles/main.css'), path.join(DIST, 'assets/main.css'));
+
+// Minified stylesheet: strip comments, collapse whitespace, drop spaces around
+// delimiters. Quoted strings (font names) keep their inner spacing.
+const minifyCss = (css) =>
+  css
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([{};,:])\s*/g, '$1')
+    .replace(/;}/g, '}')
+    .trim();
+await write(
+  path.join(DIST, 'assets/main.css'),
+  minifyCss(await readFile(path.join(SRC, 'styles/main.css'), 'utf8'))
+);
 await copyFile(path.join(SRC, 'assets/favicon.svg'), path.join(DIST, 'assets/favicon.svg'));
 if (existsSync(path.join(SRC, 'assets/og.png'))) {
   await copyFile(path.join(SRC, 'assets/og.png'), path.join(DIST, 'assets/og.png'));
